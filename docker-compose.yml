@@ -1,0 +1,14 @@
+services:
+    conjur_cli_configure:
+        env_file:
+            - .env
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: base
+        container_name: conjur_cli_configure
+        networks:
+            - conjur_external
+networks:
+    conjur_external:
+        external: true
