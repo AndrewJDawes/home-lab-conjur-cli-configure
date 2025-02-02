@@ -1,0 +1,19 @@
+# The name of the layer is inherited from the policy name - AKA, from the -b option to the conjur policy load command used to load the file
+- !layer
+# Each layer can have multiple hosts
+- !host jenkins.codekaizen.net
+- !grant
+  # Gets the name of the role from the layer and host. Example: myorg:host:jenkins-frontend/jenkins.codekaizen.net
+  role: !layer
+  member: !host jenkins.codekaizen.net
+
+# Will automatically create an API key and return output such as:
+# {
+#   "created_roles": {
+#     "myorg:host:jenkins-frontend/jenkins.codekaizen.net": {
+#       "id": "myorg:host:jenkins-frontend/jenkins.codekaizen.net",
+#       "api_key": "asdfasdfasdfasdfasdfasdfasdfasdfasfasdfasdf"
+#     }
+#   },
+#   "version": 1
+# }

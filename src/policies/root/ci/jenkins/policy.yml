@@ -1,0 +1,46 @@
+- !group
+  id: admins
+  annotations:
+    description: Owner of jenkins branch policies
+    editable: "true"
+
+# Grant conjur-admins to be jenkins/admins
+- !grant
+  role: !group admins
+  members:
+    - !group /conjur-admins
+
+# Create host/ci/jenkins/controller host identity
+- !host
+  id: controller
+  annotations:
+    description: Global host identity for Jenkins Controller
+
+# Create standalone secret variables
+- !variable test_secret
+
+# Create grouped secret variables using collections
+- &global-retrieve-secrets
+  - !variable test/artifactory-url
+  - !variable test/artifactory-username
+  - !variable test/artifactory-password
+# - &cybr-cli
+#   - !variable pas/hostname
+#   - !variable pas/username
+#   - !variable pas/password
+#   - !variable ccp/hostname
+#   - !variable ccp/client-cert
+#   - !variable ccp/client-key
+
+# Permit host/ci/jenkins/controller identity to retrieve global secrets
+- !permit
+  role: !host controller
+  privileges: [ read, execute ]
+  resource: *global-retrieve-secrets
+
+- !policy
+  id: projects
+  owner: !group admins
+  annotations:
+    description: Projects that do not fall under a folder within Jenkins or project-specific host identities for authn-jwt/jenkins authentication.
+    jenkins: true

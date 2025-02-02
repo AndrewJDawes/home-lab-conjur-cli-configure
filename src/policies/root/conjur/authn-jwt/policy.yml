@@ -1,0 +1,5 @@
+- !policy
+  id: jenkins
+  annotations:
+    description: JWT Authenticator web service for Jenkins
+    jenkins: true

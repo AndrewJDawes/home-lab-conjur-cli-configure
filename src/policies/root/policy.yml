@@ -1,0 +1,37 @@
+#Users
+# - !user
+#   id: jfc
+#   annotations:
+#     name: Jean-Francois Christophe
+#     email: jf.christophe@cyberark.com
+
+# Admin group
+- !group admin
+- !permit
+  role: !group admin
+  privileges: [read, create, update]
+  resource: !policy root
+
+# Add admin users to admin group
+- !grant
+  role: !group admin
+  members:
+    - !user admin
+    # - !user jfc
+    # - !user jam
+
+- !group
+  id: conjur-admins
+  annotations:
+    description: Conjur administrator group. Permits full access to all resources.
+    editable: "true"
+
+#System policies
+- !policy
+  id: conjur
+  owner: !group admin
+
+- !policy
+  id: ci
+  annotations:
+    description: All continuous improvement tooling policies

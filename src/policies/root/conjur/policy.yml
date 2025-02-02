@@ -1,0 +1,4 @@
+- !policy
+  id: authn-jwt
+  annotations:
+    description: Conjur jwt authenticator policies

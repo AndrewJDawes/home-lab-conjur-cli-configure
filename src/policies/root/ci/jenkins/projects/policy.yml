@@ -1,0 +1,99 @@
+# Group of hosts that can authenticate using this JWT Authenticator
+- !group
+  # id: ci/jenkins/projects # not needed, because by default when you exclude the id, it will use the parent policy id as the group id
+  annotations:
+    editable: "true"
+
+# Grant the jenkins projects group to use the authn-jwt/jenkins authenticator web service
+- !grant
+  role: !group conjur/authn-jwt/jenkins/consumers
+  member: !group ci/jenkins/projects
+
+# Create standalone secret variables
+- !variable test_secret
+
+# - !host
+#   id: Test-Global-Secret-Retrieval
+#   annotations:
+#     description: Freestyle project in Jenkins named Test-Global-Secret-Retrieval.
+#     jenkins: true
+#     project_url: na
+#     authn-jwt/jenkins/jenkins_pronoun: Project
+#     authn-jwt/jenkins/identity: 266e991928f8c7cf155bd54d43d12174-Test-Global-Secret-Retrieval
+
+# - !host
+#   id: Git-Clone-SSHKey
+#   annotations:
+#     description: Freestyle project in Jenkins named Git-Clone-SSHKey.
+#     jenkins: true
+#     project_url: na
+#     authn-jwt/jenkins/jenkins_pronoun: Project
+#     authn-jwt/jenkins/identity: 266e991928f8c7cf155bd54d43d12174-Git-Clone-SSHKey
+
+# - !host
+#   id: Test-Secret-Retrieval-1
+#   annotations:
+#     description: Freestyle project in Jenkins named Test-Secret-Retrieval-1 in the Dev-Team-1 folder.
+#     jenkins: true
+#     project_url: na
+#     authn-jwt/jenkins/jenkins_parent_name: Dev-Team-1
+#     authn-jwt/jenkins/jenkins_pronoun: Project
+#     authn-jwt/jenkins/identity: 266e991928f8c7cf155bd54d43d12174-Test-Secret-Retrieval-1
+
+# - !host
+#   id: Test-Secret-Retrieval-1-Pipeline
+#   annotations:
+#     description: Pipeline project in Jenkins named Test-Secret-Retrieval-1-Pipeline in the Dev-Team-1 folder.
+#     jenkins: true
+#     project_url: na
+#     authn-jwt/jenkins/jenkins_parent_name: Dev-Team-1
+#     authn-jwt/jenkins/jenkins_pronoun: Pipeline
+#     authn-jwt/jenkins/identity: 266e991928f8c7cf155bd54d43d12174-Test-Secret-Retrieval-1-Pipeline
+
+# - !host
+#   id: cybr-cli
+#   annotations:
+#     description: Pipeline project in Jenkins named cybr-cli.
+#     jenkins: true
+#     project_url: "https://github.com/infamousjoeg/cybr-cli"
+#     authn-jwt/jenkins/jenkins_task_noun: Build
+#     authn-jwt/jenkins/jenkins_pronoun: Pipeline
+#     authn-jwt/jenkins/identity: 266e991928f8c7cf155bd54d43d12174-cybr-cli
+
+# - !host
+#   id: conjur-policies
+#   annotations:
+#     description: Pipeline project in Jenkins to automatically load Conjur policy on change.
+#     jenkins: true
+#     project_url: "https://github.com/infamousjoeg/conjur-policies"
+#     authn-jwt/jenkins/jenkins_pronoun: Pipeline
+#     authn-jwt/jenkins/jenkins_task_noun: Build
+#     authn-jwt/jenkins/identity: 266e991928f8c7cf155bd54d43d12174-conjur-policies
+
+
+# - !host
+#   id: Dev-Team-1
+#   annotations:
+#     description: Folder in Jenkins that holds many different Jenkins job types.
+#     jenkins: true
+#     authn-jwt/jenkins/jenkins_url_child_prefix: job
+#     authn-jwt/jenkins/jenkins_task_noun: Build
+#     authn-jwt/jenkins/identity: 266e991928f8c7cf155bd54d43d12174-Dev-Team-1
+
+
+# # Grant all hosts in collection above to be members of projects group
+# - !grant
+#   role: !group
+#   members:
+#     - !host Test-Global-Secret-Retrieval
+#     - !host Test-Secret-Retrieval-1
+#     - !host cybr-cli
+#     - !host conjur-policies
+#     - !host Git-Clone-SSHKey
+#     - !host Dev-Team-1
+#     - !host Test-Secret-Retrieval-1-Pipeline
+
+# - !permit
+#   role: !host Dev-Team-1
+#   privileges: [ read, execute ]
+#   resource: !variable test_secret
