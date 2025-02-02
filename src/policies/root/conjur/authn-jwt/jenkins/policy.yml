@@ -58,6 +58,10 @@
   role: !group consumers
   member: !host /ci/jenkins/controller
 
+- !grant
+  role: !group consumers
+  member: !host /ci/jenkins/controller/jobs-v2
+
 # Create a web service for checking authn-jwt/jenkins status
 - !webservice
   id: status

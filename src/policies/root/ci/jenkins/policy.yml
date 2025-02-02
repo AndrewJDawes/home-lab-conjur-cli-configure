@@ -16,6 +16,15 @@
   annotations:
     description: Global host identity for Jenkins Controller
 
+- !host
+  id: controller/jobs-v2
+  annotations:
+    description: Permit host/ci/jenkins/controller/jobs-v2 identity to retrieve global secrets
+    jenkins: true
+    project_url: na
+    authn-jwt/jenkins/jenkins_task_noun: Build
+    # authn-jwt/jenkins/identity: 266e991928f8c7cf155bd54d43d12174-Test-Global-Secret-Retrieval
+
 # Create standalone secret variables
 - !variable test_secret
 
@@ -35,6 +44,12 @@
 # Permit host/ci/jenkins/controller identity to retrieve global secrets
 - !permit
   role: !host controller
+  privileges: [ read, execute ]
+  resource: *global-retrieve-secrets
+
+# Permit host/ci/jenkins/controller/jobs-v2 identity to retrieve global secrets
+- !permit
+  role: !host controller/jobs-v2
   privileges: [ read, execute ]
   resource: *global-retrieve-secrets
 
