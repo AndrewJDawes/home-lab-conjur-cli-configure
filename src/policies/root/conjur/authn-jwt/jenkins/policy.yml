@@ -53,14 +53,9 @@
   privilege: [ read, authenticate ]
   resource: !webservice
 
-# Grant host/ci/jenkins/controller to be a member of conjur/authn-jwt/jenkins/consumers
 - !grant
   role: !group consumers
-  member: !host /ci/jenkins/controller
-
-- !grant
-  role: !group consumers
-  member: !host /ci/jenkins/controller/jobs-v2
+  member: !host /ci/jenkins/cyberark-conjur
 
 # Create a web service for checking authn-jwt/jenkins status
 - !webservice
