@@ -25,7 +25,7 @@ conjur variable set -i conjur/authn-jwt/jenkins/token-app-property -v aud
 conjur variable set -i conjur/authn-jwt/jenkins/identity-path -v 'ci/jenkins'
 
 conjur variable set -i conjur/authn-jwt/jenkins/issuer -v "$CONJUR_AUTHN_JWT_JENKINS_ISSUER"
-conjur variable set -i conjur/authn-jwt/jenkins/jwks-uri -v "$CONJUR_AUTHN_JWT_JENKINS_JWKS_URI" CONJUR_AUTHN_JWT_JENKINS_AUDIENCE
+conjur variable set -i conjur/authn-jwt/jenkins/jwks-uri -v "$CONJUR_AUTHN_JWT_JENKINS_JWKS_URI"
 conjur variable set -i conjur/authn-jwt/jenkins/audience -v "$CONJUR_AUTHN_JWT_JENKINS_AUDIENCE"
 
 exec "$@"
