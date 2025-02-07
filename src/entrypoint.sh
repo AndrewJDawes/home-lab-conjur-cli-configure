@@ -24,9 +24,8 @@ conjur variable set -i conjur/authn-jwt/jenkins/token-app-property -v aud
 # conjur variable set -i conjur/authn-jwt/jenkins/identity-path -v 'myspace/jwt-apps'
 conjur variable set -i conjur/authn-jwt/jenkins/identity-path -v 'ci/jenkins'
 
-
-conjur variable set -i conjur/authn-jwt/jenkins/issuer -v 'http://localhost:8080'
-conjur variable set -i conjur/authn-jwt/jenkins/jwks-uri -v 'http://jenkins:8080/jwtauth/conjur-jwk-set'
-conjur variable set -i conjur/authn-jwt/jenkins/audience -v "cyberark-conjur"
+conjur variable set -i conjur/authn-jwt/jenkins/issuer -v "$CONJUR_AUTHN_JWT_JENKINS_ISSUER"
+conjur variable set -i conjur/authn-jwt/jenkins/jwks-uri -v "$CONJUR_AUTHN_JWT_JENKINS_AUDIENCE"
+conjur variable set -i conjur/authn-jwt/jenkins/audience -v "$CONJUR_AUTHN_JWT_JENKINS_JWKS_URI"
 
 exec "$@"
