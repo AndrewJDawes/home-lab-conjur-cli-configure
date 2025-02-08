@@ -1,0 +1,4 @@
+- !policy
+  id: website
+  annotations:
+    description: CodeKaizen website

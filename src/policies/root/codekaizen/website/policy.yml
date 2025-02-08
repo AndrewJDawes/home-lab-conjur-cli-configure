@@ -1,0 +1,12 @@
+- &wordpress
+  - !variable nextapp-revalidate-secret
+  - !variable mysql-root-password
+  - !variable wordpress-db-name
+  - !variable wordpress-db-user
+  - !variable wordpress-db-password
+
+
+- !permit
+  role: !host /ci/jenkins/cyberark-conjur
+  privileges: [read]
+  resource: *wordpress

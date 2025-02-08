@@ -35,3 +35,8 @@
   id: ci
   annotations:
     description: All continuous improvement tooling policies
+
+- !policy
+  id: codekaizen
+  annotations:
+    description: CodeKaizen

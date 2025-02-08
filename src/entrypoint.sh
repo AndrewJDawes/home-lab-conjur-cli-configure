@@ -14,7 +14,8 @@ conjur policy replace -b ci -f ./policies/root/ci/policy.yml
 conjur policy replace -b ci/jenkins -f ./policies/root/ci/jenkins/policy.yml
 conjur policy replace -b conjur/authn-jwt -f ./policies/root/conjur/authn-jwt/policy.yml
 conjur policy replace -b conjur/authn-jwt/jenkins -f ./policies/root/conjur/authn-jwt/jenkins/policy.yml
-# conjur policy replace -b ci/jenkins/projects -f ./policies/root/ci/jenkins/projects/policy.yml
+conjur policy replace -b codekaizen -f ./policies/root/codekaizen/policy.yml
+conjur policy replace -b codekaizen/website -f ./policies/root/codekaizen/website/policy.yml
 
 # The jwt's token-app-property (in this case, "aud") value will be appended to the identity-path value to form the "!host" that Conjur will authenticate the JWT token against.
 # So for example, if the jwt token has an "aud" value of "cyberark-conjur", the identity-path value is "ci/jenkins", then the Conjur host that the JWT token will be authenticated against is "ci/jenkins/cyberark-conjur".
