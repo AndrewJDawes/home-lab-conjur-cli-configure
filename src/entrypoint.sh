@@ -6,7 +6,7 @@ set -e
 # execute the /entrypoint.sh script
 # this script is provided by the base image
 
-/entrypoint.sh
+/home-lab-conjur-cli/src/entrypoint.sh
 
 conjur policy replace -b root -f ./policies/root/policy.yml
 conjur policy replace -b conjur -f ./policies/root/conjur/policy.yml

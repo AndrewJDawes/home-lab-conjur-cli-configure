@@ -1,4 +1,4 @@
-FROM ghcr.io/andrewjdawes/home-lab-conjur-cli:v1 AS base
+FROM ghcr.io/andrewjdawes/home-lab-conjur-cli:v2 AS base
 
 ENV CONJUR_SERVER_APPLIANCE_URL=""
 ENV CONJUR_ORG_ACCOUNT=""
