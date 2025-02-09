@@ -8,5 +8,5 @@
 
 - !permit
   role: !host /ci/jenkins/cyberark-conjur
-  privileges: [read]
+  privileges: [read, execute]
   resource: *wordpress
