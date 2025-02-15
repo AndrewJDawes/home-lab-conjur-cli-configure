@@ -1,0 +1,4 @@
+- !policy
+  id: npm
+  annotations:
+    description: Umerx npm packages

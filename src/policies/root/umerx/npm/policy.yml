@@ -1,0 +1,7 @@
+- &packages
+  - !variable npm-token-kafkajs-client
+
+- !permit
+  role: !host /ci/jenkins/cyberark-conjur
+  privileges: [read, execute]
+  resource: *packages

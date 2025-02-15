@@ -40,3 +40,8 @@
   id: codekaizen
   annotations:
     description: CodeKaizen
+
+- !policy
+  id: umerx
+  annotations:
+    description: Umerx
