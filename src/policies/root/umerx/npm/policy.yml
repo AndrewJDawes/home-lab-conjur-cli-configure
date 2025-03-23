@@ -1,6 +1,6 @@
 - &packages
   - !variable npm-token-kafkajs-client
-  - !variable npm-token-reconnecting-webserver
+  - !variable npm-token-reconnecting-websocket
 
 - !permit
   role: !host /ci/jenkins/cyberark-conjur
