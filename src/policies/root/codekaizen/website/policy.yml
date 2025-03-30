@@ -4,6 +4,7 @@
   - !variable wordpress-db-name
   - !variable wordpress-db-user
   - !variable wordpress-db-password
+  - !variable github-token-missiedawes-codekaizen-website-frontend-push
 
 
 - !permit
