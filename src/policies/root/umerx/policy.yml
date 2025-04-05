@@ -2,3 +2,7 @@
   id: npm
   annotations:
     description: Umerx npm packages
+- !policy
+  id: ghcr
+  annotations:
+    description: Umerx ghcr credentials

@@ -1,0 +1,7 @@
+- &packages
+  - !variable packages-read-write
+
+- !permit
+  role: !host /ci/jenkins/cyberark-conjur
+  privileges: [read, execute]
+  resource: *packages
