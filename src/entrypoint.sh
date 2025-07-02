@@ -19,6 +19,8 @@ conjur policy replace -b codekaizen/website -f ./policies/root/codekaizen/websit
 conjur policy replace -b umerx -f ./policies/root/umerx/policy.yml
 conjur policy replace -b umerx/npm -f ./policies/root/umerx/npm/policy.yml
 conjur policy replace -b umerx/ghcr -f ./policies/root/umerx/ghcr/policy.yml
+conjur policy replace -b andrewjdawes -f ./policies/root/andrewjdawes/policy.yml
+conjur policy replace -b andrewjdawes/woo-ai-demo -f ./policies/root/andrewjdawes/woo-ai-demo/policy.yml
 
 
 # The jwt's token-app-property (in this case, "aud") value will be appended to the identity-path value to form the "!host" that Conjur will authenticate the JWT token against.

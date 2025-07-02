@@ -1,0 +1,4 @@
+- !policy
+  id: woo-ai-demo
+  annotations:
+    description: woo-ai-demo

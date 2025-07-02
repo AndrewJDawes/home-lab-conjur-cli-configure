@@ -1,0 +1,9 @@
+- &wordpress
+  - !variable mysql-root-password
+  - !variable wordpress-db-password
+  - !variable wordpress-admin-password
+
+- !permit
+  role: !host /ci/jenkins/cyberark-conjur
+  privileges: [read, execute]
+  resource: *wordpress
