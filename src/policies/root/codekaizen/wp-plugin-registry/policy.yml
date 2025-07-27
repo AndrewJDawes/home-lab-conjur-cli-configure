@@ -1,0 +1,7 @@
+- &ghcr
+  - !variable registry-password
+
+- !permit
+  role: !host /ci/jenkins/cyberark-conjur
+  privileges: [read, execute]
+  resource: *ghcr

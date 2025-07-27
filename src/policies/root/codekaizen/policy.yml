@@ -2,3 +2,7 @@
   id: website
   annotations:
     description: CodeKaizen website
+- !policy
+  id: wp-plugin-registry
+  annotations:
+    description: CodeKaizen WordPress plugin registry
