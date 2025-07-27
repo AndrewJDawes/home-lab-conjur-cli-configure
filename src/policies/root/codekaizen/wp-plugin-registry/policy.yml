@@ -1,5 +1,5 @@
 - &ghcr
-  - !variable registry-password
+  - !variable ghcr-registry-password
 
 - !permit
   role: !host /ci/jenkins/cyberark-conjur
