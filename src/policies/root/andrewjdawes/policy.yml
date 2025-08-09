@@ -1,4 +1,8 @@
 - !policy
+  id: packagist
+  annotations:
+    description: packagist
+- !policy
   id: woo-ai-demo
   annotations:
     description: woo-ai-demo

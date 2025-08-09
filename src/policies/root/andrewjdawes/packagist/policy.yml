@@ -1,0 +1,7 @@
+- &packagist
+  - !variable packagist-password
+
+- !permit
+  role: !host /ci/jenkins/cyberark-conjur
+  privileges: [read, execute]
+  resource: *ghcr
