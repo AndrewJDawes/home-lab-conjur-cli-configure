@@ -1,5 +1,5 @@
 - &packagist
-  - !variable packagist-password
+  - !variable api-token
 
 - !permit
   role: !host /ci/jenkins/cyberark-conjur
