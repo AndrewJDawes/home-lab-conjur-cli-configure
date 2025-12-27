@@ -9,17 +9,15 @@ ENV CONJUR_AUTHN_JWT_JENKINS_ISSUER=""
 ENV CONJUR_AUTHN_JWT_JENKINS_AUDIENCE=""
 ENV CONJUR_AUTHN_JWT_JENKINS_JWKS_URI=""
 
-COPY src /home-lab-conjur-cli-configure/src
+WORKDIR /home-lab-conjur-cli-configure
 
-WORKDIR /home-lab-conjur-cli-configure/src
+COPY ./src /home-lab-conjur-cli-configure/src
 
-RUN chmod +x ./entrypoint.sh
+RUN chmod +x /home-lab-conjur-cli-configure/src/entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
-CMD ["conjur", "help"]
+ENTRYPOINT ["/home-lab-conjur-cli-configure/src/entrypoint.sh"]
 
 FROM base AS dev
 
 RUN apk add --no-cache bash git
 
-WORKDIR /home-lab-conjur-cli-configure
