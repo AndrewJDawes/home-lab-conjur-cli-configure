@@ -15,8 +15,8 @@
   annotations:
     description: Permit host/ci/jenkins/cyberark-conjur identity to retrieve global secrets
     jenkins: true
-    project_url: na
-    authn-jwt/jenkins/jenkins_task_noun: Build
+    authn-jwt/jenkins/jenkins_full_name: GlobalCredentials
+    authn-jwt/jenkins/jenkins_pronoun: Global
     # authn-jwt/jenkins/identity: 266e991928f8c7cf155bd54d43d12174-Test-Global-Secret-Retrieval
 
 # Create standalone secret variables
